@@ -43,3 +43,6 @@ Die Grafiken darüber werden automatisch an die Selektion angepasst.
 
 ![Horror Output](horror.png)
 
+## Rohdaten
+Die zugrundliegenden Daten sind plot_hefte_.csv zu entnehmen.
+
