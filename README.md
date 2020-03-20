@@ -9,7 +9,6 @@ berücksichtigt. Weitergehend sind Taschenbücher, Taschenhefte und Heftmagazine
 Grundsätzlich wird die erste Auflage einer Serie in die Datenbank aufgenommen. Sollte allerdings eine spätere Auflage neue Romane über die erste Auflage hinaus beinhalten, wird auch
 diese vermerkt. Auf das platzieren von Romanen aus Serien vor, während oder nach Erscheinen der Serie in Reihen wird keine Rücksicht genommen. In diesem Fall werden Dupletten in den Datensatz aufgenommen.
 
-
 ## Quellen
 Derzeit sind folgende Quellen ausgewertet:
 * romanhefte-info.de
