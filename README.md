@@ -28,5 +28,16 @@ pandas >= 1.0.0 <br>
 dash >= 1.8.0 <br>
 dash-table >= 4.6.0 <br>
 plotly >= 4.5.0 <br>
+### Starten des Dashboards
+1. Terminal im Order heftroman-universum öffnen
+2. App mit "python start_dashboard.py" starten
+3. Im Browser http://127.0.0.1:8050/ aufrufen
+### Verwendung des Dashborads
+Die im Dashboard angezeigten Visualisierungen sind interaktiv, d.h. es ist
+möglich in die Bilder zu zoomen und durch Bewegen der Maus über bestimmte Elemente
+der Grafiken zusätzliche Informationen zu erhalten. Zusätzlich kann die
+Tabelle am unteren Ende des Dashboards gefiltert werden (z.b. nach Jahren, Genres oder Verlagen).
+Die Grafiken darüber werden automatisch an die Selektion angepasst.
+
 ![Horror Output](horror.png)
 
