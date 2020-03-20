@@ -22,6 +22,7 @@ Derzeit sind folgende Quellen ausgewertet:
 
 ## Verwendung des Dashboards
 ### Requirements
+Folgende Software muss installiert sein:
 python >= 3.7 <br>
 numpy >= 1.17.4 <br>
 pandas >= 1.0.0 <br>
