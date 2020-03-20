@@ -28,4 +28,5 @@ pandas >= 1.0.0 <br>
 dash >= 1.8.0 <br>
 dash-table >= 4.6.0 <br>
 plotly >= 4.5.0 <br>
+![Horror Output](horror.png)
 
