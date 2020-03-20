@@ -21,10 +21,10 @@ Derzeit sind folgende Quellen ausgewertet:
 
 ## Verwendung des Dashboards
 ### Requirements
-python >= 3.7
-numpy >= 1.17.4
-pandas >= 1.0.0
-dash >= 1.8.0
-dash-table >= 4.6.0
-plotly >= 4.5.0
+python >= 3.7 <br>
+numpy >= 1.17.4 <br>
+pandas >= 1.0.0 <br>
+dash >= 1.8.0 <br>
+dash-table >= 4.6.0 <br>
+plotly >= 4.5.0 <br>
 
