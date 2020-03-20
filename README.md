@@ -18,3 +18,13 @@ Derzeit sind folgende Quellen ausgewertet:
 * Bärtle, J.(2018):Grusel, Grüfte, Groschenhefte: Deutsche Grusel-Heftromane von 1968 bis heute – Eine Chronik des "Dämonen-Booms".
 * Bärtle, J.(2017):Goblins, Götter, Greifenreiter: Fantasy im deutschen Heftroman von 1972 bis 2012 – über die seltenen Ausflüge in phantastische Welten.
 * Bärtle, J.(2019): Geister, Gaslicht, Gänsehaut: Mysteriöse Romanzen, romantische Gothics – Der Spannungsroman für Frauen.
+
+## Verwendung des Dashboards
+### Requirements
+python >= 3.7
+numpy >= 1.17.4
+pandas >= 1.0.0
+dash >= 1.8.0
+dash-table >= 4.6.0
+plotly >= 4.5.0
+
