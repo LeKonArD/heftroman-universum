@@ -1,4 +1,5 @@
 # Heftroman Universum
+![Series over Time](gantt.png)
 ## Zielsetzung
 Ziel der Sammlung ist die Auflistung der in Deutschland erschienen Heftroman Serien und Reihen.
 Dabei beschränkt sich der Fokus auf Erstveröffentlichungen. Nachfolgende Auflagen werden nicht
