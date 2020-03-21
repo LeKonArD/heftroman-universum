@@ -41,7 +41,7 @@ Tabelle am unteren Ende des Dashboards gefiltert werden (z.b. nach Jahren, Genre
 Die Grafiken darüber werden automatisch an die Selektion angepasst.
 
 ![Horror Output](horror.png)
-
+Hier wurde bspw. ein Filter verwendet um nur Horror Romane anzuzeigen.
 ## Rohdaten
 Die zugrundliegenden Daten sind plot_hefte_.csv zu entnehmen.
 
