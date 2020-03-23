@@ -1,4 +1,5 @@
 # Heftroman Universum
+![Series over Time](gantt.png)
 ## Zielsetzung
 Ziel der Sammlung ist die Auflistung der in Deutschland erschienen Heftroman Serien und Reihen.
 Dabei beschränkt sich der Fokus auf Erstveröffentlichungen. Nachfolgende Auflagen werden nicht
@@ -18,13 +19,29 @@ Derzeit sind folgende Quellen ausgewertet:
 * Bärtle, J.(2018):Grusel, Grüfte, Groschenhefte: Deutsche Grusel-Heftromane von 1968 bis heute – Eine Chronik des "Dämonen-Booms".
 * Bärtle, J.(2017):Goblins, Götter, Greifenreiter: Fantasy im deutschen Heftroman von 1972 bis 2012 – über die seltenen Ausflüge in phantastische Welten.
 * Bärtle, J.(2019): Geister, Gaslicht, Gänsehaut: Mysteriöse Romanzen, romantische Gothics – Der Spannungsroman für Frauen.
-
+* Bärtle, J.(2015): Götzen, Gold und Globetrotter: Deutschen Abenteuer-Heftromane von 1960 bis 2015 – mit Übersicht der wichtigsten Nachkriegsserien
 ## Verwendung des Dashboards
 ### Requirements
+Folgende Software muss installiert sein: <br>
 python >= 3.7 <br>
 numpy >= 1.17.4 <br>
 pandas >= 1.0.0 <br>
 dash >= 1.8.0 <br>
 dash-table >= 4.6.0 <br>
 plotly >= 4.5.0 <br>
+### Starten des Dashboards
+1. Terminal im Order heftroman-universum öffnen
+2. App mit "python start_dashboard.py" starten
+3. Im Browser http://127.0.0.1:8050/ aufrufen
+### Verwendung des Dashborads
+Die im Dashboard angezeigten Visualisierungen sind interaktiv, d.h. es ist
+möglich in die Bilder zu zoomen und durch Bewegen der Maus über bestimmte Elemente
+der Grafiken zusätzliche Informationen zu erhalten. Zusätzlich kann die
+Tabelle am unteren Ende des Dashboards gefiltert werden (z.b. nach Jahren, Genres oder Verlagen).
+Die Grafiken darüber werden automatisch an die Selektion angepasst.
+
+![Horror Output](horror.png)
+Hier wurde bspw. ein Filter verwendet um nur Horror Romane anzuzeigen.
+## Rohdaten
+Die zugrundliegenden Daten sind plot_hefte_.csv zu entnehmen.
 
