@@ -127,7 +127,7 @@ def get_per_year_ratio(data):
 	year_plot["Krieg"] = krieg_output
 	year_plot["Abenteuer"] = aben_output
 	year_plot["SciFi"] = scifi_output
-	year_plot["Krimi"] = aben_output
+	year_plot["Krimi"] = krimi_output
 	year_plot["Liebe"] = liebe_output
 	year_plot["Erotik"] = erotik_output
 	year_plot["Jugend"] = jugend_output
