@@ -21,12 +21,15 @@ init_table["end"] = init_table["end"].astype(int)
 init_table["start"] = init_table["start"].astype(int)
 init_table["count"] = init_table["count"].astype(int)
 
+print(init_table["count"].sum())
+
 app = dash.Dash(__name__)
 app.title = "Heftroman Universum"
 
 app.layout = html.Div(children=[html.H1(children="Heftroman Universum"),
 				html.Table(children=[
 					html.Tr(children=[html.Td(dcc.Graph(id="gantt", style={"width": "100vw"}))]),
+					html.Tr(children=[html.Td(dcc.Graph(id="pubplot", style={"width": "100vw"}))]),
 					html.Tr(children=[html.Td(dcc.Graph(id="stackplot", style={"width": "100vw"}))])
 						    ]),
 				dash_table.DataTable(
@@ -57,6 +60,29 @@ def calc_year(x):
     except:
         print(x)
     return perY
+
+def get_pub_output(data):
+
+	data["peryear"] = data.apply(lambda x: calc_year(x), axis=1)
+	years = list(range(min(data["start"]),max(data["end"]),1))
+	output = []
+	pubs = []
+	unique_publisher = set(data["publisher"])
+	for pub in unique_publisher:
+	    
+	    select = data[data["publisher"] == pub]
+	    
+	    for year in years:
+	        output.append(select[(select["end"] >= year) & (select["start"] <= year)]["peryear"].sum())
+		
+	    pubs = pubs + [pub] * len(years)
+
+	pub_output = pd.DataFrame()
+	pub_output["Publisher"] = pubs
+	pub_output["Hefte"] = output
+	pub_output["Year"] = years * len(set(data["publisher"]))
+
+	return pub_output
 
 def get_per_year_ratio(data):
 
@@ -89,7 +115,7 @@ def get_per_year_ratio(data):
 	year_plot["year"] = years
 	year_plot["Hefte"] = all_output
 	year_plot["Fantasy"] = fantasy_output
-	year_plot["Rom"] = rom_output
+	year_plot["Rom Sus."] = rom_output
 	year_plot["Horror"] = hor_output
 	year_plot["Western"] = wes_output
 	year_plot["Krieg"] = krieg_output
@@ -113,11 +139,12 @@ def gantt_plot(input_data, nochange_table):
 	colors = []
 	col_dict = {"Fantasy":"#009900","romatic suspense":"#993399","Horror":"#000000","Krieg":"#8f8c85","Western":"#b59345","Abenteuer":"#b54550","Krimi":"#fff200","SciFi":"#8f0191","Liebe":"#ff0000"}
 	for index, row in input_data.iterrows():
-	    	df.append(dict(Task=row["title"],Start=row["start"],Finish=row["end"],Resource=row["publisher"]))
+	    	df.append(dict(Task=row["title"],Start=row["start"],Finish=row["end"], Resource=row["genre"],Description=row["title"]+", "+row["publisher"]+", "+str(row["count"])+" Hefte"))
 	    	colors.append(col_dict[row["genre"]])
 	
-	fig = ff.create_gantt(df, colors=colors, height=600)
-
+	fig = ff.create_gantt(df, colors=colors, height=600, index_col='Resource')
+	fig["layout"].update(title={"text":"Serien und Publikationszeiträume nach Genres"})
+	fig['layout'].update(legend={'x': 1, 'y': 1})
 	return fig
 
 @app.callback(Output('stackplot', 'figure'),
@@ -130,13 +157,40 @@ def stack_plot(input_data, nochange_table):
 	input_data = pd.DataFrame(input_data)
 	input_data = input_data.sort_values("start")
 	year_plot = get_per_year_ratio(input_data)
-	stack_frame = pd.DataFrame()
-	stack_frame["Year"] = list(year_plot["year"])*9
-	stack_frame["Genre"] = len(year_plot)*["Fantasy"]+len(year_plot)*["Rom. Sus."]+len(year_plot)*["Horror"]+len(year_plot)*["Western"]+len(year_plot)*["Krieg"]+len(year_plot)*["Abenteuer"]+len(year_plot)*["SciFi"]+len(year_plot)*["Krimi"]+len(year_plot)*["Liebe"]
-	stack_frame["Hefte"] = list(year_plot["Fantasy"])+list(year_plot["Rom"])+list(year_plot["Horror"])+list(year_plot["Western"])+list(year_plot["Krieg"])+list(year_plot["Abenteuer"])+list(year_plot["SciFi"])+list(year_plot["Krimi"])+list(year_plot["Liebe"])
 
-	stack_fig = px.area(stack_frame, x="Year", y="Hefte", color="Genre", line_group="Genre")
+	x = list(year_plot.year)
+	stack_fig = go.Figure(go.Bar(x=x, y=[0]*len(x), name=''))
+	genres= ["Abenteuer","Krimi","Krieg","Western","SciFi","Horror","Fantasy","Liebe","Rom Sus."]
+	for gen in genres:
+    		stack_fig.add_trace(go.Bar(x=x, y=year_plot[gen], name=gen))
+    
+	stack_fig.update_layout(barmode='stack', xaxis={'categoryorder':'category ascending'})
+	stack_fig["layout"].update(title={"text":"Veröffentlichte Romane nach Genre"})
+	stack_fig['layout'].update(legend={'x': 1, 'y': 1})
 	return stack_fig
+
+@app.callback(Output('pubplot', 'figure'),
+	     [Input('table', 'derived_virtual_data'),
+	      Input("table","data")])
+def pub_plot(input_data, nochange_table):
+
+	if input_data is None:
+		input_data = nochange_table
+	input_data = pd.DataFrame(input_data)
+	input_data = input_data.sort_values("start")
+
+	pub_output = get_pub_output(input_data)
+
+	x = list(pub_output.Year)
+	fig = go.Figure(go.Bar(x=x, y=[0]*len(x), name=''))
+
+	for pubs in set(pub_output.Publisher):
+	    fig.add_trace(go.Bar(x=x, y=pub_output[pub_output.Publisher == pubs].Hefte, name=pubs))
+	    
+	fig.update_layout(barmode='stack', xaxis={'categoryorder':'category ascending'})
+	fig["layout"].update(title={"text":"Veröffentlichungen über Zeit und Verlage"})
+	fig['layout'].update(legend={'x': 1, 'y': 1})
+	return fig
 
 
 if __name__ == '__main__':
