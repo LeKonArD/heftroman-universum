@@ -13,7 +13,7 @@ diese vermerkt. Auf das platzieren von Romanen aus Serien vor, während oder nac
 
 Aktuell ist der Bestand leider noch weit entfernt davon repräsentativ zu sein. Zwar sind einige Genres (Fantasy, Horror, Romantic Suspense) weitestgehend vollständig, dafür fehlen andere komplett (vor allem Liebesromane).
 Die Veröffentlichungen pro Jahr sind in der Darstellung gemittelt auf Erscheinungszeitraum und Anzahl Veröffentlichungen insgesamt. Änderungen im Publikationsrhythmus sind noch nicht mit aufgenommen.
-Die Sammlung zählt aktuell 51.000 Heftromane.
+Die Sammlung zählt aktuell 73.000 Heftromane aus 660 Serien und Reihen.
 
 ## Quellen
 Derzeit sind folgende Quellen ausgewertet:
