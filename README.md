@@ -9,6 +9,12 @@ berücksichtigt. Weitergehend sind Taschenbücher, Taschenhefte und Heftmagazine
 Grundsätzlich wird die erste Auflage einer Serie in die Datenbank aufgenommen. Sollte allerdings eine spätere Auflage neue Romane über die erste Auflage hinaus beinhalten, wird auch
 diese vermerkt. Auf das platzieren von Romanen aus Serien vor, während oder nach Erscheinen der Serie in Reihen wird keine Rücksicht genommen. In diesem Fall werden Dupletten in den Datensatz aufgenommen.
 
+## Anmerkungen zum Stand der Sammlung
+
+Aktuell ist der Bestand leider noch weit entfernt davon repräsentativ zu sein. Zwar sind einige Genres (Fantasy, Horror, Romantic Suspense) weitestgehend vollständig, dafür fehlen andere komplett (vor allem Liebesromane).
+Die Veröffentlichungen pro Jahr sind in der Darstellung gemittelt auf Erscheinungszeitraum und Anzahl Veröffentlichungen insgesamt. Änderungen im Publikationsrhythmus sind noch nicht mit aufgenommen.
+Die Sammlung zählt aktuell 51.000 Heftromane.
+
 ## Quellen
 Derzeit sind folgende Quellen ausgewertet:
 * Wanjek, P.: Bibliographie der deutschen Heftromane 1900-1945.
