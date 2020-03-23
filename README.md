@@ -11,6 +11,7 @@ diese vermerkt. Auf das platzieren von Romanen aus Serien vor, während oder nac
 
 ## Quellen
 Derzeit sind folgende Quellen ausgewertet:
+* Wanjek, P.: Bibliographie der deutschen Heftromane 1900-1945.
 * romanhefte-info.de
 * sf-hefte.de
 * groschenhefte.net

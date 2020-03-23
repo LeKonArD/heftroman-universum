@@ -98,6 +98,9 @@ def get_per_year_ratio(data):
 	scifi_output = []
 	krimi_output = []
 	liebe_output = []
+	jugend_output = []
+	erotik_output = []
+	unklar_output = []
 	for year in years:
 	    
 	    all_output.append(data[(data["end"] >= year) & (data["start"] <= year)]["peryear"].sum())
@@ -110,6 +113,9 @@ def get_per_year_ratio(data):
 	    scifi_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "SciFi")]["peryear"].sum())
 	    krimi_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "Krimi")]["peryear"].sum())
 	    liebe_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "Liebe")]["peryear"].sum())
+	    erotik_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "Erotik")]["peryear"].sum())
+	    jugend_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "Jugend")]["peryear"].sum())
+	    unklar_output.append(data[(data["end"] >= year) & (data["start"] <= year) & (data["genre"] == "unklar")]["peryear"].sum())
 	year_plot = pd.DataFrame()
 
 	year_plot["year"] = years
@@ -120,9 +126,12 @@ def get_per_year_ratio(data):
 	year_plot["Western"] = wes_output
 	year_plot["Krieg"] = krieg_output
 	year_plot["Abenteuer"] = aben_output
-	year_plot["SciFi"] = krieg_output
+	year_plot["SciFi"] = scifi_output
 	year_plot["Krimi"] = aben_output
 	year_plot["Liebe"] = liebe_output
+	year_plot["Erotik"] = erotik_output
+	year_plot["Jugend"] = jugend_output
+	year_plot["Unklar"] = unklar_output
 
 	return year_plot
 
@@ -137,7 +146,7 @@ def gantt_plot(input_data, nochange_table):
 	input_data = input_data.sort_values("start")
 	df = []
 	colors = []
-	col_dict = {"Fantasy":"#009900","romatic suspense":"#993399","Horror":"#000000","Krieg":"#8f8c85","Western":"#b59345","Abenteuer":"#b54550","Krimi":"#fff200","SciFi":"#8f0191","Liebe":"#ff0000"}
+	col_dict = {"Fantasy":"#009900","romatic suspense":"#993399","Horror":"#000000","Krieg":"#8f8c85","Western":"#b59345","Abenteuer":"#b54550","Krimi":"#fff200","SciFi":"#8f0191","Liebe":"#ff0000","Erotik":"#f285d0","Jugend":"#4ebfa7","unklar":"#979999"}
 	for index, row in input_data.iterrows():
 	    	df.append(dict(Task=row["title"],Start=row["start"],Finish=row["end"], Resource=row["genre"],Description=row["title"]+", "+row["publisher"]+", "+str(row["count"])+" Hefte"))
 	    	colors.append(col_dict[row["genre"]])
@@ -160,7 +169,7 @@ def stack_plot(input_data, nochange_table):
 
 	x = list(year_plot.year)
 	stack_fig = go.Figure(go.Bar(x=x, y=[0]*len(x), name=''))
-	genres= ["Abenteuer","Krimi","Krieg","Western","SciFi","Horror","Fantasy","Liebe","Rom Sus."]
+	genres= ["Abenteuer","Krimi","Krieg","Western","SciFi","Horror","Fantasy","Liebe","Rom Sus.","Erotik","Jugend","Unklar"]
 	for gen in genres:
     		stack_fig.add_trace(go.Bar(x=x, y=year_plot[gen], name=gen))
     
@@ -194,4 +203,4 @@ def pub_plot(input_data, nochange_table):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
