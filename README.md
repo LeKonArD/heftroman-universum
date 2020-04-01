@@ -3,7 +3,7 @@
 ## Zielsetzung
 Ziel der Sammlung ist die Auflistung der in Deutschland erschienen Heftroman Serien und Reihen.
 Dabei beschränkt sich der Fokus auf Erstveröffentlichungen. Nachfolgende Auflagen werden nicht
-berücksichtigt. Weitergehend sind Taschenbücher, Taschenhefte und Heftmagazine. Ausnahme bilden Taschenhefte, falls dort zwei oder mehr Heftromane gebündelt veröffentlicht werden.
+berücksichtigt. Weitergehend sind Taschenbücher, Taschenhefte und Heftmagazine ausgeschlossen. Ausnahme bilden Taschenhefte, falls dort zwei oder mehr Heftromane gebündelt veröffentlicht werden.
 
 ## Umgang mit neuen Auflagen und Mehrfachverwertung
 Grundsätzlich wird die erste Auflage einer Serie in die Datenbank aufgenommen. Sollte allerdings eine spätere Auflage neue Romane über die erste Auflage hinaus beinhalten, wird auch
